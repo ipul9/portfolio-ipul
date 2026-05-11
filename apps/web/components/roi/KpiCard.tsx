@@ -39,10 +39,10 @@ export default function KpiCard({ label, value, delta, prevValue, accent, invert
   const arrow = delta === 0 ? "→" : delta > 0 ? "▲" : "▼";
 
   return (
-    <div className={`rounded-xl border-l-4 bg-white p-4 shadow-sm ${accentMap[accent]}`}>
+    <div className={`rounded-xl border-l-4 bg-white p-4 shadow-sm text-center ${accentMap[accent]}`}>
       <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">{label}</p>
       <p className={`mt-1 text-2xl font-bold ${accentText[accent]}`}>{value}</p>
-      <div className="mt-2 flex items-center gap-2 text-xs">
+      <div className="mt-2 flex items-center justify-center gap-2 text-xs">
         <span className={`font-medium ${deltaColor}`}>
           {arrow} {Math.abs(delta).toFixed(1)}%
         </span>
