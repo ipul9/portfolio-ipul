@@ -14,9 +14,8 @@ export interface Prototype {
   created_at: string;
 }
 
-// process.cwd() = apps/web/ at build time; registry.json is at repo root (2 levels up)
 export function getPrototypes(): Prototype[] {
-  const registryPath = path.join(process.cwd(), "../../registry.json");
+  const registryPath = path.join(process.cwd(), "data/registry.json");
   const raw = fs.readFileSync(registryPath, "utf-8");
   return JSON.parse(raw) as Prototype[];
 }
