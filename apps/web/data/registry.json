@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "roi-dashboard",
+    "title": "ROI Dashboard",
+    "description": "Dashboard analitik iklan digital — KPI cards, tren harian, breakdown per platform & produk. Dibangun dengan Next.js + Recharts, data dummy.",
+    "stack": ["Next.js", "Recharts", "TypeScript", "Tailwind CSS"],
+    "status": "live",
+    "demo_url": "/roi",
+    "github_path": "prototypes/roi-dashboard",
+    "created_at": "2026-05-11"
+  }
+]
