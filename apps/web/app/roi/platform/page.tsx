@@ -115,7 +115,7 @@ export default function PlatformPage() {
               </tr>
             </thead>
             <tbody>
-              {BY_PLATFORM.sort((a, b) => b.revenue - a.revenue).map((row, i) => (
+              {[...BY_PLATFORM].sort((a, b) => b.revenue - a.revenue).map((row, i) => (
                 <tr key={row.platform} className={`border-t border-gray-50 hover:bg-slate-50 ${row.roi_pct < 0 ? "bg-red-50/60" : ""}`}>
                   <td className="px-4 py-2.5 font-medium text-gray-800 whitespace-nowrap">
                     <div className="flex items-center gap-2">
