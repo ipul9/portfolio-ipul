@@ -55,7 +55,7 @@ export default function PlatformPage() {
       {/* Charts */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Spending vs Profit per platform */}
-        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+        <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm sm:p-5">
           <h2 className="mb-4 text-sm font-semibold text-gray-700">Spending vs Adv Profit per Platform</h2>
           <ResponsiveContainer width="100%" height={240}>
             <BarChart data={BY_PLATFORM} layout="vertical" margin={{ left: 12, right: 12 }}>
@@ -73,7 +73,7 @@ export default function PlatformPage() {
         </div>
 
         {/* Spending & ROI trend */}
-        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+        <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm sm:p-5">
           <h2 className="mb-4 text-sm font-semibold text-gray-700">Tren Spending & ROI Harian</h2>
           <ResponsiveContainer width="100%" height={240}>
             <ComposedChart data={curr} margin={{ top: 4, right: 8, bottom: 0, left: 0 }}>

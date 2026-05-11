@@ -21,10 +21,10 @@ export default function ProductPage() {
       </div>
 
       {/* Top 15 bar chart */}
-      <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-        <div className="mb-4 flex items-center justify-between">
+      <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm sm:p-5">
+        <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-sm font-semibold text-gray-700">Top 15 Produk by Revenue</h2>
-          <div className="flex gap-1">
+          <div className="flex flex-wrap gap-1">
             {(["revenue", "roi_pct", "advertising_profit"] as const).map((k) => (
               <button key={k} onClick={() => setSortKey(k)}
                 className={`rounded-full px-2.5 py-1 text-xs font-medium transition ${sortKey === k ? "bg-indigo-600 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>
@@ -34,11 +34,11 @@ export default function ProductPage() {
           </div>
         </div>
         <ResponsiveContainer width="100%" height={340}>
-          <BarChart data={top15} layout="vertical" margin={{ left: 8, right: 16 }}>
+          <BarChart data={top15} layout="vertical" margin={{ left: 4, right: 12 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" horizontal={false} />
             <XAxis type="number" tick={{ fontSize: 10, fill: "#94A3B8" }}
               tickFormatter={(v) => sortKey === "roi_pct" ? `${v.toFixed(0)}%` : `${(v / 1_000_000).toFixed(0)}M`} />
-            <YAxis type="category" dataKey="produk" tick={{ fontSize: 10, fill: "#64748B" }} width={140} />
+            <YAxis type="category" dataKey="produk" tick={{ fontSize: 10, fill: "#64748B" }} width={90} tickFormatter={(v: string) => v.length > 14 ? v.slice(0, 13) + "…" : v} />
             <Tooltip
               formatter={((v: unknown) => { const n = Number(v ?? 0); return sortKey === "roi_pct" ? [`${n.toFixed(1)}%`, sortKey] : [`Rp ${(n / 1_000_000).toFixed(1)}M`, sortKey]; }) as never}
               contentStyle={{ fontSize: 12, borderRadius: 8 }}
@@ -54,12 +54,12 @@ export default function ProductPage() {
 
       {/* Product table */}
       <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-        <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between gap-4">
+        <div className="flex flex-col gap-3 border-b border-gray-100 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5 sm:py-4">
           <h2 className="text-sm font-semibold text-gray-700">Semua Produk</h2>
           <input
             type="text" placeholder="Cari produk..." value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="rounded-lg border border-gray-200 px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-300 w-48"
+            className="w-full rounded-lg border border-gray-200 px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-300 sm:w-48"
           />
         </div>
         <div className="overflow-x-auto">
