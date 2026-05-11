@@ -28,8 +28,8 @@ export default function PrototypeCard({ proto }: { proto: Prototype }) {
         ))}
       </div>
 
-      <div className="mt-auto flex gap-3 pt-2">
-        {proto.demo_url && (
+      {proto.demo_url && (
+        <div className="mt-auto pt-2">
           <a
             href={proto.demo_url}
             target="_blank"
@@ -38,16 +38,8 @@ export default function PrototypeCard({ proto }: { proto: Prototype }) {
           >
             Live Demo
           </a>
-        )}
-        <a
-          href={`https://github.com/ipul9/portfolio-ipul/tree/main/${proto.github_path}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs font-medium text-gray-500 hover:underline"
-        >
-          Source
-        </a>
-      </div>
+        </div>
+      )}
     </div>
   );
 }
